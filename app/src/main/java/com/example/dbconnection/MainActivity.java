@@ -1,5 +1,6 @@
 package com.example.dbconnection;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
                 String query = "INSERT INTO student(name,password) VALUES ('"+username+"','"+password+"')";
                 sql.execSQL(query);
                 Toast.makeText(MainActivity.this,"SUCCESS!!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Home_Page.class);
+                startActivity(intent);
+                finish();
             }
         });
 

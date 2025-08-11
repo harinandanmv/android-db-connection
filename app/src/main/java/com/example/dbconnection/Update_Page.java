@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.Cursor;
 import android.widget.Toast;
 
 public class Update_Page extends AppCompatActivity {
@@ -32,16 +31,30 @@ public class Update_Page extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Integer id = editText.getId();
+
+                if (editText.getText().toString().isEmpty() ||
+                        editText1.getText().toString().isEmpty() ||
+                        editText2.getText().toString().isEmpty()) {
+                    Toast.makeText(Update_Page.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int id;
+                try {
+                    id = Integer.parseInt(editText.getText().toString());
+                } catch (NumberFormatException e) {
+                    Toast.makeText(Update_Page.this, "Invalid ID format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String name = editText1.getText().toString();
                 String pw = editText2.getText().toString();
-                String query = "UPDATE student SET name='" + name + "',password='" + pw + "' WHERE id = '" + id + "'";
 
+                String query = "UPDATE student SET name='" + name + "', pw='" + pw + "' WHERE id = " + id;
                 sql.execSQL(query);
 
                 Toast.makeText(Update_Page.this, "UPDATED!!!", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

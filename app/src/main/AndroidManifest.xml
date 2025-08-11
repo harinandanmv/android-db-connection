@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DBConnection">
         <activity
+            android:name=".Update_Page"
+            android:exported="true" />
+        <activity
             android:name=".Home_Page"
             android:exported="true" />
         <activity

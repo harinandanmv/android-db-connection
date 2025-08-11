@@ -1,5 +1,6 @@
 package com.example.dbconnection;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +26,7 @@ public class Home_Page extends AppCompatActivity {
         Button btn1 = findViewById(R.id.button);
         EditText editText = findViewById(R.id.editText3);
         Button btn2 = findViewById(R.id.button2);
+        Button btn3 = findViewById(R.id.button4);
 
         SQLiteDatabase sql = openOrCreateDatabase("studentdb", MODE_PRIVATE, null);
 
@@ -77,6 +79,13 @@ public class Home_Page extends AppCompatActivity {
             }
         });
 
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home_Page.this, Update_Page.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

@@ -1,4 +1,4 @@
-# 📱 Android SQLite Database App
+# 📱 Android SQLite Database CRUD App
 
 ![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)
 ![Java](https://img.shields.io/badge/Language-Java-blue?logo=java)
@@ -10,18 +10,19 @@
 
 ## 📌 About
 
-This is a **basic Android application** built using **Java** that demonstrates how to use **SQLite** for local data storage. The app allows users to enter a username and password, which are saved in a local database upon submission. It’s a simple and effective way to understand **data persistence** on Android without external servers or APIs.
+This is a **basic Android application** built using **Java** that demonstrates **CRUD operations** (Create, Read, Update, Delete) with **SQLite** for local data storage. The app allows users to add, view, update, and delete records without needing an internet connection. It’s a simple and effective way to understand **data persistence** in Android.
 
 ---
 
 ## 🚀 Features
 
-- 📥 Takes user input via EditText
-- 🗃️ Creates a local SQLite database (`studentdb`)
-- 🏗️ Creates a table named `student` if it doesn’t exist
-- ➕ Inserts new username and password records
-- ✅ Displays a success `Toast` message
-- 🔁 Navigates to the next activity (`Home_Page`) after storing data
+- ➕ **Create**: Add new username and password records
+- 📄 **Read**: Display all stored records
+- ✏️ **Update**: Edit existing username and password by ID
+- ❌ **Delete**: Remove a record by username
+- 🗃️ Automatically creates `student` table if it doesn’t exist
+- ✅ Displays success and error `Toast` messages
+- 🔄 Activity navigation for each operation
 
 ---
 
@@ -38,10 +39,13 @@ This is a **basic Android application** built using **Java** that demonstrates h
 
 ```
 📦 com.example.dbconnection
- ┣ 📄 MainActivity.java
- ┣ 📄 Home_Page.java
+ ┣ 📄 MainActivity.java          # Create records
+ ┣ 📄 Home_Page.java             # Read & Delete records
+ ┣ 📄 Update_Page.java           # Update records
  ┣ 🗂️ res/layout/activity_main.xml
- ┗ 🗂️ AndroidManifest.xml
+ ┣ 🗂️ res/layout/activity_home.xml
+ ┣ 🗂️ res/layout/activity_update.xml
+ ┗ 📄 AndroidManifest.xml
 ```
 
 ---
@@ -50,22 +54,19 @@ This is a **basic Android application** built using **Java** that demonstrates h
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/harinandanmv/android-db-connection.git
    ```
-
-2. Open the project in **Android Studio**.
-
-3. Connect your emulator or Android device.
-
-4. Click **Run** ▶️ to build and launch the app.
+2. Open in **Android Studio**  
+3. Connect emulator or Android device  
+4. Click **Run** ▶️ to build and launch the app
 
 ---
 
 ## ⚠️ Important Notes
 
-- This is a **basic example** and not meant for production use.
-- Passwords are stored in plain text — for real applications, use encryption or secure authentication.
-- SQL injection protection (e.g., using `SQLiteStatement` or `Room`) is not implemented but recommended for safety.
+- Passwords are stored in **plain text** — use encryption for production apps
+- SQL queries are vulnerable to **SQL injection** — use `SQLiteStatement` or **Room**
+- This is for **educational purposes only**
 
 ---
 
@@ -79,13 +80,12 @@ This is a **basic Android application** built using **Java** that demonstrates h
 
 ## 🙌 Contributions
 
-Feel free to fork this repository and add enhancements like:
-
+You can improve this app by adding:
 - 🔒 Input validation
 - 🧠 Login authentication
-- 💾 Use of Room Database
-- 🎨 UI improvements with Material Design
+- 💾 Migration to Room Database
+- 🎨 Material Design UI improvements
 
 ---
 
-> ✨ Learn by building — this simple app is a great starting point for mastering local database handling in Android!
+> ✨ Learn by building — this CRUD app is a great starting point to master SQLite in Android!
